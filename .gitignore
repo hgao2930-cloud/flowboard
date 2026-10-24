@@ -1,0 +1,12 @@
+/artifacts/
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+!.env.test.example
+*.pem
+*.key
+*.log
+.DS_Store

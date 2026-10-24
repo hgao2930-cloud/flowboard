@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --env-file=.env src/server.js",
+    "test": "node --test tests/*.test.mjs",
+    "test:mysql": "node --env-file=.env.test.local --test tests/mysql.test.mjs",
+    "check": "node --check src/server.js && node --check src/room-runtime.js && node --check src/mysql-store.js",
+    "dev": "node --env-file=.env src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@y/websocket-server": "0.1.1",
+    "mysql2": "^3.24.6",
+    "ws": "8.22.0",
+    "yjs": "13.6.27"
+  }
+}
