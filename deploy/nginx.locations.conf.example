@@ -1,0 +1,29 @@
+# Include INSIDE the existing port-80 server block in minimall.conf.
+# Copy frontend/dist CONTENTS to /var/www/flowboard/ before enabling.
+# Keep the existing location / and location /api/ unchanged.
+location = /flowboard {
+    return 301 /flowboard/;
+}
+
+location ^~ /flowboard/api/ {
+    # /flowboard/api/rooms -> /api/rooms
+    proxy_pass http://127.0.0.1:3001/api/;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+}
+
+location ^~ /flowboard/ws/ {
+    # /flowboard/ws/room-id -> /room-id
+    proxy_pass http://127.0.0.1:3001/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_set_header Host $host;
+    proxy_read_timeout 75s;
+}
+
+location ^~ /flowboard/ {
+    root /var/www;
+    index index.html;
+    try_files $uri $uri/ /flowboard/index.html;
+}
