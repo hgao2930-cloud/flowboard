@@ -8,6 +8,16 @@
 
 ## 页面预览
 
+**画布全貌**：使用不同颜色的卡片和连线整理迭代流程。
+
+![Flowboard 画布：产品迭代计划的卡片与连线](docs/images/board.png)
+
+**协作局部**：两个客户端进入同一房间，显示在线成员和远端光标。
+
+![Flowboard 协作：在线成员与协作者光标](docs/images/collaboration.png)
+
+**首页**：创建白板、加入协作、导入 JSON，以及本机最近访问记录。
+
 ![Flowboard 首页：创建白板、加入协作与最近访问](docs/images/home.png)
 
 ## 功能
